@@ -15,7 +15,7 @@ script:
   - bash -ex .travis-ocaml.sh
   - opam install -y dune
   - opam install -y -v z3=${Z3_VERSION}
-  - dune build --verbose basic.exe logic.exe
-  - dune runtest
+  - opam exec -- dune build --verbose basic.exe logic.exe
+  - opam exec -- dune runtest
   
   
