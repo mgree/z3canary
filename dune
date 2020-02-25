@@ -1,0 +1,3 @@
+(executable
+ (name basic)
+ (libraries z3))

@@ -1,0 +1,19 @@
+lang: c
+sudo: required
+
+env:
+  - OCAML_VERSION=4.07
+  - OCAML_VERSION=4.08
+  - OCAML_VERSION=4.09
+
+os:
+  - linux
+  - osx
+  
+script:
+  - bash -ex .travis-opam.sh
+  - opam install -y dune z3
+  - dune build --verbose basic.exe
+  - _build/default/basic.exe
+  
+  
