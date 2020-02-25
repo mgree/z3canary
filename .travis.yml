@@ -2,18 +2,20 @@ lang: c
 sudo: required
 
 env:
-  - OCAML_VERSION=4.07
-  - OCAML_VERSION=4.08
-  - OCAML_VERSION=4.09
-
+  - Z3_VERSION=4.7.1
+  - Z3_VERSION=4.8.1
+  - Z3_VERSION=4.8.4
+  - Z3_VERSION=4.8.6
+  - Z3_VERSION=4.8.7
+  
 os:
   - linux
   - osx
   
 script:
   - bash -ex .travis-opam.sh
-  - opam install -y dune z3
-  - dune build --verbose basic.exe
-  - _build/default/basic.exe
+  - opam install -y dune z3=${Z3_VERSION}
+  - dune build --verbose basic.exe logic.exe
+  - dune runtest
   
   
