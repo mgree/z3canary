@@ -2,7 +2,6 @@ lang: c
 sudo: required
 
 env:
-  - Z3_VERSION=4.7.1
   - Z3_VERSION=4.8.1
   - Z3_VERSION=4.8.4
   - Z3_VERSION=4.8.6
@@ -14,7 +13,7 @@ os:
   
 script:
   - bash -ex .travis-opam.sh
-  - opam install -y dune z3=${Z3_VERSION}
+  - travis_wait opam install -y z3=${Z3_VERSION}
   - dune build --verbose basic.exe logic.exe
   - dune runtest
   
