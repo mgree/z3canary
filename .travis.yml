@@ -12,8 +12,8 @@ os:
   - osx
   
 script:
-  - bash -ex .travis-opam.sh
-  - travis_wait opam install -y z3=${Z3_VERSION}
+  - bash -ex .travis-ocaml.sh
+  - travis_wait opam install -y dune z3=${Z3_VERSION}
   - dune build --verbose basic.exe logic.exe
   - dune runtest
   
