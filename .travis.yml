@@ -1,4 +1,4 @@
-lang: c
+language: c
 sudo: required
 
 env:
@@ -11,6 +11,10 @@ os:
   - linux
   - osx
 
+cache:
+  directories:
+    - $HOME/.opam
+  
 before_install:
   - bash -ex .travis-ocaml.sh
   - opam install -y dune
