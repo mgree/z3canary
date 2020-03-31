@@ -1,3 +1,4 @@
 (tests
   (names basic logic)
-  (libraries z3))
+  (libraries z3)
+  (flags (-cclib -lstdc++)))
