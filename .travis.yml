@@ -27,7 +27,7 @@ before_install:
 script:
   - Z3_LIB="$(opam var lib)/z3"
   - LD_LIBRARY_PATH="${Z3_LIB}:${LD_LIBRARY_PATH}"; export LD_LIBRARY_PATH
-  - if [ "${Z3_VERSION}" = "4.8.1" ] && [ "${TRAVIS_OS_NAME}" = "osx" ]; then DYLD_FALLBACK_PATH="${Z3_LIB}:${DYLD_FALLBACK_PATH}"; export DYLD_FALLBACK_PATH; fi
+  - if [ "${Z3_VERSION}" = "4.8.1" ] && [ "${TRAVIS_OS_NAME}" = "osx" ]; then DYLD_FALLBACK_LIBRARY_PATH="${Z3_LIB}:${DYLD_FALLBACK_LIBRARY_PATH}"; export DYLD_FALLBACK_LIBRARY_PATH; fi
   - export -p | grep LIBRARY_PATH
   - opam exec -- dune build --verbose basic.exe logic.exe
   - opam exec -- dune runtest
