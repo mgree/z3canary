@@ -22,6 +22,7 @@ cache:
 before_install:
   - bash -ex .travis-ocaml.sh
   - opam install -y dune
+  - opam repo add ivg git@github.com:ivg/opam-repository.git
   - opam install -y -v z3=${Z3_VERSION}
  
 script:
